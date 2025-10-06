@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
 
     public Slider healthBar;
     
-    // Start is called before the first frame update
+    // Start is called before the first frame updatez
     void Start()
     {
         currentHealth = maxHealth;
@@ -30,6 +30,10 @@ public class EnemyHealth : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("The enemy has died");
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.AddScore(1);
+            GameManager.Instance.LoadNextScene();
+        }
     }
 }
